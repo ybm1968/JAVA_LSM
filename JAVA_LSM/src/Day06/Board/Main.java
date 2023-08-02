@@ -170,7 +170,7 @@ public class Main {
 				System.out.println("(0~5) 사이의 숫자를 입력해주세요.");
 				break;
 			}
-		} while(menuNo != 0        );
+		} while(menuNo != 0);
 		
 		System.out.println("프로그램을 종료합니다....");
 	}
