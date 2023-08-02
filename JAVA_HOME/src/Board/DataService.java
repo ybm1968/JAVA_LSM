@@ -2,13 +2,13 @@ package Board;
 
 public interface DataService {
 
-	Board[] selectList();
+	Text[] selectList();
 	
-	Board select(int boardNo);
+	Text select(int no);
 	
-	int insert(Board board);
+	int insert(Text text);
 	
-	int update(Board board);
+	int update(Text text);
 	
-	int delete(int boardNo);
+	int delete(int no);
 }

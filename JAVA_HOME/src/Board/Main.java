@@ -17,9 +17,10 @@ import java.util.Scanner;
 public class Main {
 
 	static int max = 10;					// 게시글 최대 개수
-	static Board[] boardList = new Board[max];
+	static Text[] boardList = new Board[max];
 	static Scanner sc = new Scanner(System.in);
-	static DataService data = new BoardAccess(); //데이터베이스 접근 객체
+	static DataService data = new BoardAccess(); //데이터베이스 접근 객체(게시글)
+	static DataService data2 = new BoardAccess(); //데이터베이스 접근 객체(댓글)
 	
 	// 메뉴판
 	public static void menu() {
@@ -37,12 +38,12 @@ public class Main {
 	public static void list() {
 		System.out.println("#### 게시글 목록 ####");
 		boardList = data.selectList();
-		for (Board board : boardList) {
+		for (Text board : boardList) {
 			if(board == null) {
 				System.out.println("(게시글 없음)");
 				continue;
 			}
-			int boardNo = board.getBoardNo();
+			int boardNo = board.getNo();
 			String title = board.getTitle();
 			String writer = board.getWriter();
 			Date regDate = board.getRegDate();
@@ -59,7 +60,7 @@ public class Main {
 		
 		System.out.print("글 번호 : ");
 		int boardNo = sc.nextInt();
-		Board board = data.select(boardNo);
+		Text board = data.select(boardNo);
 		
 		String title = board.getTitle();
 		String writer = board.getWriter();
