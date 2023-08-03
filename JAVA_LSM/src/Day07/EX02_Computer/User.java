@@ -18,7 +18,7 @@ public class User {
 
 
 		computer2.turnOn();
-		computer2.displaㅕy();
+		computer2.display();
 		computer2.typing();
 		computer2.turnOff();
 		
