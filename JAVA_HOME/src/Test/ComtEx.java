@@ -10,6 +10,10 @@ public class ComtEx {
 		cmpt.turnOff();
 		cmpt.Game();
 		// cmpt.Search();
+		
+		Samsung smg = (Samsung) cmpt;
+		smg.Search();
+		
 	}
 	
 }
