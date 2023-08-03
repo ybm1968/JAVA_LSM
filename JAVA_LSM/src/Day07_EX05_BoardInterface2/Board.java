@@ -1,20 +1,16 @@
-package Day07.EX05_BoardInterface;
-
+package Day07_EX05_BoardInterface2;
 
 public class Board extends Text {
-
-	private int boardNo;
-
 	
+	private int boardNo;
+		
 	// 생성자
 	public Board() {
 		this("제목없음", "글쓴이없음", "내용없음");
 	}
 	
 	public Board(String title, String writer, String content) {
-		
 		super(title, writer, content);
-		
 	}
 
 	// getter, setter
@@ -24,7 +20,6 @@ public class Board extends Text {
 
 	public void setBoardNo(int boardNo) {
 		this.boardNo = boardNo;
-		setNo(boardNo);
 	}
 	
 }

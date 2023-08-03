@@ -1,7 +1,4 @@
-package Day07.EX05_BoardInterface;
-
-import java.sql.SQLException;
-import java.util.Date;
+package Day07_EX05_BoardInterface2;
 
 public class Comment extends Text {
 
@@ -22,7 +19,6 @@ public class Comment extends Text {
 
 	public void setCommentNo(int commentNo) {
 		this.commentNo = commentNo;
-		setNo(boardNo);
 	}
 
 	public int getBoardNo() {
@@ -36,4 +32,3 @@ public class Comment extends Text {
 	
 	
 }
-
