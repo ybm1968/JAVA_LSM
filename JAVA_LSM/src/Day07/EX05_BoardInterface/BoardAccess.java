@@ -1,5 +1,7 @@
 package Day07.EX05_BoardInterface;
 
+// 질문라인번호 - 30, 32
+
 import java.sql.SQLException;
 
 public class BoardAccess extends JDBConnection implements DataService {
@@ -25,9 +27,9 @@ public class BoardAccess extends JDBConnection implements DataService {
 			board.setBoardNo(rs.getInt("board_no"));
 			board.setTitle(rs.getString("title"));
 			board.setWriter(rs.getString("writer"));
-			board.setContent(rs.getString("content"));
+			board.setContent(rs.getString("content")); //필요하나?
 			board.setRegDate(rs.getTimestamp("reg_date"));
-			board.setUpdDate(rs.getTimestamp("upd_date"));
+			board.setUpdDate(rs.getTimestamp("upd_date")); //필요하나?
 				
 				if(i >= max) break;
 				boardList[i++] = board;
@@ -78,7 +80,7 @@ public class BoardAccess extends JDBConnection implements DataService {
 		
 		try {
 			psmt = con.prepareStatement(sql);			// 쿼리 실행 객체 생성
-			psmt.setString(1, text.getTitle());		// 1번 ?에 제목을 매핑
+			psmt.setString(1, text.getTitle());			// 1번 ?에 제목을 매핑
 			psmt.setString(2, text.getWriter());		// 2번 ?에 작성자 매핑
 			psmt.setString(3, text.getContent()); 		// 3번 ?에 내용을 매핑
 			
@@ -109,10 +111,10 @@ public class BoardAccess extends JDBConnection implements DataService {
 		
 		try {
 			psmt = con.prepareStatement(sql);
-			psmt.setString(1, text.getTitle());		// 1번 ?에 제목을 매핑
+			psmt.setString(1, text.getTitle());			// 1번 ?에 제목을 매핑
 			psmt.setString(2, text.getWriter());		// 2번 ?에 작성자 매핑
 			psmt.setString(3, text.getContent()); 		// 3번 ?에 내용을 매핑
-			psmt.setInt(4, text.getNo());			// 4번 ?에 게시글 번호를 매핑
+			psmt.setInt(4, text.getNo());				// 4번 ?에 게시글 번호를 매핑
 			
 			result = psmt.executeUpdate();		// SQL 실행요청, 
 												// 적용된 데이터 개수를 받아옴

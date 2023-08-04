@@ -1,5 +1,6 @@
 package Day07.EX05_BoardInterface;
 
+// 질문라인번호 - 52
 
 import java.util.Date;
 import java.util.Scanner;
@@ -45,9 +46,10 @@ public class Main {
 		for (Text board : boardList) {
 			if(board == null) {
 				System.out.println("(게시글 없음)");
-				continue;
+				continue;		
 			}
-			int boardNo = board.getNo();
+		
+			int boardNo = board.getNo();		// board 넘버대신에 get넘버를 쓴이유
 			String title = board.getTitle();
 			String writer = board.getWriter();
 			Date regDate = board.getRegDate();

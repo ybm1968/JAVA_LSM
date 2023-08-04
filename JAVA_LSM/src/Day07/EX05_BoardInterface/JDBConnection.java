@@ -7,7 +7,6 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 
-
 public class JDBConnection {
 	
 	public Connection con;
