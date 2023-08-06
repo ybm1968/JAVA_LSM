@@ -28,6 +28,13 @@ public class SmartTelevision implements SmartRemoteControl, Searchable {
 	}
 	
 	@Override
+	public void setChannel(int channel) {
+		this.channel = channel;
+		System.out.println("channel : " + channel);
+		
+	}
+	
+	@Override
 	public String receiveVoice(String voice) {
 		System.out.println("음성입력 : " + voice);
 		return "voice : " + voice;
@@ -83,13 +90,4 @@ public class SmartTelevision implements SmartRemoteControl, Searchable {
 		
 	}
 	
-	@Override
-	public void setChannel(int channel) {
-		this.channel = channel;
-		System.out.println("channel : " + channel);
-		
-	}
-		
-	
-
 }

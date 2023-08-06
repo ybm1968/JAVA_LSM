@@ -1,10 +1,12 @@
 package Day07.EX05_BoardInterface;
 
+// // 질문 라인번호 - 9, 72, 89
+
 import java.sql.SQLException;
 
 public class CommentAccess extends JDBConnection implements DataService {
 
-	// 데이터 목록 조회
+	// 데이터 목록 조회 (기능 안하는 메소드??)
 	public Text[] selectList() {
 		
 		int max = Main.max;
@@ -26,7 +28,7 @@ public class CommentAccess extends JDBConnection implements DataService {
 				// 결과 데이터 가져오기
 				// rs.getXXX("컬럼명") --> 해당 컬럼의 데이터를 가져온다
 				comment.setCommentNo( rs.getInt("comment_no") );
-				comment.setBoardNo(rs.getInt("board_no")); //??
+				comment.setBoardNo(rs.getInt("board_no")); 		
 				comment.setWriter( rs.getString("writer") );
 				comment.setContent( rs.getString("content") );
 				comment.setRegDate( rs.getTimestamp("reg_date") );
@@ -67,7 +69,7 @@ public class CommentAccess extends JDBConnection implements DataService {
 					// 결과 데이터 가져오기
 					// rs.getXXX("컬럼명") --> 해당 컬럼의 데이터를 가져온다
 					comment.setNo( rs.getInt("comment_no") );
-					comment.setBoardNo(rs.getInt("board_no")); //??
+					comment.setBoardNo(rs.getInt("board_no")); //	필요하나?
 					comment.setWriter( rs.getString("writer") );
 					comment.setContent( rs.getString("content") );
 					comment.setRegDate( rs.getTimestamp("reg_date") );
@@ -84,7 +86,7 @@ public class CommentAccess extends JDBConnection implements DataService {
 			return commentList;
 		}
 	
-	// 데이터 조회
+	// 데이터 조회 (기능 안하는 메소드??)
 	public Text select(int no) {
 		Comment comment = new Comment();
 		String sql = " SELECT * "
@@ -131,7 +133,7 @@ public class CommentAccess extends JDBConnection implements DataService {
 			
 			result = psmt.executeUpdate();				// SQL 실행 요청, 적용된 데이터 개수를 받아옴
 														// 댓글 1개 쓰기 성공 시, result : 1
-														// 				실패 시, result : 0
+														// 			   실패 시, result : 0
 		} catch (SQLException e) {
 			System.err.println("댓글 등록 시, 에러 발생");
 			e.printStackTrace();

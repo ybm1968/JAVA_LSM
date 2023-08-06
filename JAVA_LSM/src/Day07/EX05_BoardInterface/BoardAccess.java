@@ -137,7 +137,7 @@ public class BoardAccess extends JDBConnection implements DataService {
 		
 		try {
 			psmt = con.prepareStatement(sql);		// 쿼리 실행 객체 생성
-			psmt.setInt(1, no);				// 1번 ? 에 글번호를 매핑
+			psmt.setInt(1, no);						// 1번 ? 에 글번호를 매핑
 			
 			result = psmt.executeUpdate();			// SQL 실행 요청
 			

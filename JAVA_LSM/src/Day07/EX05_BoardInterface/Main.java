@@ -1,6 +1,6 @@
 package Day07.EX05_BoardInterface;
 
-// 질문라인번호 - 52
+// 질문라인번호 - 182번 잘못적은건가?
 
 import java.util.Date;
 import java.util.Scanner;
@@ -15,6 +15,11 @@ import java.util.Scanner;
  * - 게시글 삭제
  */
 
+// Main 클래스를 객체로 만들지 않고 static으로 선언되지 않았기 떄문에
+// Main 클래스 안에 있는 변수들과 메소드는 전부 static으로 선언해서
+// 객체를 생성하지 않아도 메모리가 할당되어 있기 때문에 사용이 가능하다.
+// Main 클래스를 static으로 선언하고 변수들과 메소드를 
+// static으로 선언하지 않아도 똑같이 동작을 할까????
 public class Main {
 
 	static int max = 10;							// 게시글 최대 개수
@@ -49,10 +54,10 @@ public class Main {
 				continue;		
 			}
 		
-			int boardNo = board.getNo();		// board 넘버대신에 get넘버를 쓴이유
-			String title = board.getTitle();
-			String writer = board.getWriter();
-			Date regDate = board.getRegDate();
+			int boardNo = board.getNo();		// getBoardNo 대신에 getNo를 쓴이유  
+			String title = board.getTitle();	// : board변수는 board 자료형이 아니라 Text 자료형이기 떄문에	
+			String writer = board.getWriter();	// getBoardNo 메소드를 사용하지 못하고
+			Date regDate = board.getRegDate();  // getNo를 사용할 수 있어서 getNo를 통해서 boardNo를 알 수 있다.
 			
 			System.out.println("(" + boardNo + ") \t | " + title + " \t | " 
 					+ writer + " \t | " + regDate);
@@ -88,7 +93,7 @@ public class Main {
 		
 		System.out.println("------[댓글 목록]------");
 		for (int i = 0; i < commentList.length; i++) {
-			if(commentList[i] == null ) continue;
+			if(commentList[i] == null ) continue;		// break 써도 되지않나?
 			
 			int commentNo = commentList[i].getNo();
 			String commentWriter = commentList[i].getWriter();
@@ -174,7 +179,7 @@ public class Main {
 		Comment comment = inputComment();
 		comment.setNo(boardNo);				// no <- 게시글 번호(boardNo)
 		
-		data2.insert(comment);
+		// data2.insert(comment); 잘못적은건가??
 		int result = data2.insert(comment);
 		if(result > 0) {
 			System.out.println("댓글이 작성되었습니다.");
@@ -264,7 +269,7 @@ public class Main {
 				commentDelete();	// 댓글 삭제
 				break;
 			default: 
-				System.out.println("(0~5) 사이의 숫자를 입력해주세요.");
+				System.out.println("(0~8) 사이의 숫자를 입력해주세요.");
 				break;
 			}
 		} while(menuNo != 0        );
