@@ -27,11 +27,11 @@ public class WrappperEx {
 		
 		// Integer
 		// int -> Integer
-		// : 정수타입을 int 기본타입을 객체화한 클래스
+		// : 정수타입 int 기본타입을 객체화한 클래스
 		System.out.println(Integer.parseInt("28"));		// 문자열 -> 정수
 		System.out.println(Integer.toString(28) + 2);	// 정수 -> 문자열
 		System.out.println(Integer.toBinaryString(28)); // 2진수 문자열로 변환
-		System.err.println(Integer.bitCount(28));	 	// 2진수의 1의 개수
+		System.out.println(Integer.bitCount(28));	 	// 2진수의 1의 개수
 		
 		// deprecated ??
 		// : 더 이상 사용을 권장하지 않는 문법
