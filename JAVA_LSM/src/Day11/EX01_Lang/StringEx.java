@@ -16,11 +16,10 @@ public class StringEx {
 		System.out.println(str1.trim());					// 문자열 양쪽 공백 제거
 		System.out.println(str1.length());					// 문자열 길이 (글자수)(공백포함)
 		System.out.println(str1.substring(10));				// index 앞의 문자열을 자르고 뒤의 문자열을 반환
-		System.out.println(str1.substring(10, 17));			// index - (index2 - 1)까지 반환
+		System.out.println(str1.substring(10, 17));			// 시작index - (끝index - 1)까지 반환
 		
 		System.out.println(str1.replace(" ", "*"));			// replace("기존문자", "대체문자")
 		System.out.println(str1.replaceAll(" ", "*")); 		// replace와 같음
-		System.out.println(str1.toUpperCase()); 			// 모두 대문자로 변경
 		System.out.println(str1.toUpperCase()); 			// 모두 대문자로 변경
 		System.out.println(str1.toLowerCase()); 			// 모두 소문자로 변경
 		

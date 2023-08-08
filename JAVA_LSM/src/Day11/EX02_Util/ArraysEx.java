@@ -1,5 +1,5 @@
 package Day11.EX02_Util;
-// 복습
+
 import java.util.Arrays;
 import java.util.Collections;
 
@@ -7,6 +7,11 @@ import java.util.Collections;
 public class ArraysEx {
 
 	public static void main(String[] args) {
+		// 배열요소 안에 있는 값이 일치하는지 여부를 반환
+		int[] a = {3, 4, 5};
+		int[] b = {3, 4, 5};		
+		System.out.println("일치여부 : " + Arrays.equals(a, b));
+		
 		// 정렬되지 않는 배열요소들
 		Integer[] arr = {5, 3, 4, 1, 2};
 		
@@ -14,16 +19,16 @@ public class ArraysEx {
 		Arrays.sort(arr);
 		
 		for (int i : arr) {
-			System.out.println(i + " ");
+			System.out.print(i + " ");
 		}
 		System.out.println();
 		
 		
 		// 배열을 정렬(sort) - 내림차순
-		Arrays.sort(arr, Collections.reverseOrder()); // 다시보기 컬렉션은 객체만 가능
+		Arrays.sort(arr, Collections.reverseOrder()); 
 		
 		for (int i : arr) {
-			System.out.println(i + " ");
+			System.out.print(i + " ");
 		}
 		System.out.println();
 		
@@ -38,7 +43,7 @@ public class ArraysEx {
 		Arrays.sort(random);
 		
 		for (int i = 0; i < random.length; i++) {
-			System.out.println(random[i] + " ");
+			System.out.print(random[i] + " ");
 		}
 		System.out.println();
 		
@@ -58,7 +63,7 @@ public class ArraysEx {
 		Arrays.fill(fill, 8);
 		
 		for (int i = 0; i < fill.length; i++) {
-			System.out.println(fill[i] + " ");
+			System.out.print(fill[i] + " ");
 		}
 		System.out.println();
 		
@@ -69,16 +74,16 @@ public class ArraysEx {
 		// 8 8 8 복사해줌
 		
 		for (int i = 0; i < copy.length; i++) {
-			System.out.println(copy[i] + " ");
+			System.out.print(copy[i] + " ");
 		}
 		System.out.println();
 		
-		// Arrays.copyOfRange(배열, 시작index, 끝index+1);
+		// Arrays.copyOfRange(배열, 시작index, 끝index-1);
 		// : 배열을 시작index ~ 끝index 까지의 요소를 복사하여 배열로 반환
 		int copyRange[] = Arrays.copyOfRange(random, 11, 21);	// 11 ~ 20
 		
 		for (int i = 0; i < copyRange.length; i++) {
-			System.out.println(copyRange[i] + " ");
+			System.out.print(copyRange[i] + " ");
 		}
 		System.out.println();
 		

@@ -1,5 +1,5 @@
 package Day11.EX02_Util;
-// 복습
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -40,7 +40,7 @@ public class DateEx {
 		System.out.println("종강까지 남은 시간(/분) : " + gapMin);
 		System.out.println("종강까지 남은 시간(/초) : " + gapSec);
 		
-		// Date 객체의 gerXXX() 메소드는 deprecated(더 이상 사용권장 안함)
+		// Date 객체의 getXXX() 메소드는 deprecated(더 이상 사용권장 안함)
 		// --> 날짜의 년/월/일 추출하는 기능은 Calendar 클래스에서 주로 사용
 		System.out.println("Today (년) : " + date1.getYear());
 		System.out.println("Today (월) : " + date1.getMonth());

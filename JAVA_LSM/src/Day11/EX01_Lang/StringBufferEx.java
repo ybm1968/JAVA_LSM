@@ -18,11 +18,11 @@ public class StringBufferEx {
 		sb.insert(7, "real");
 		System.out.println(sb);
 		
-		// replace(시작index, 끝index + 1, "대체 문자열") 	: 시작index ~ 끝index 까지 문자열을 새 문자열로 대체
+		// replace(시작index, 끝index - 1, "대체 문자열") 	: 시작index ~ 끝index 까지 문자열을 새 문자열로 대체
 		sb.replace(8, 12, "good");
 		System.out.println(sb);
 		
-		// delete(시작index, 끝index+1)				 	: 시작index ~ 끝index 까지 문자열을 삭제
+		// delete(시작index, 끝index - 1)				 	: 시작index ~ 끝index 까지 문자열을 삭제
 		sb.delete(8, 13);
 		System.out.println(sb);
 		

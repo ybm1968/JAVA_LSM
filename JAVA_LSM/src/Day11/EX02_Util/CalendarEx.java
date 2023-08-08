@@ -1,5 +1,5 @@
 package Day11.EX02_Util;
-// 복습
+
 import java.util.Calendar;
 
 public class CalendarEx {
@@ -50,7 +50,7 @@ public class CalendarEx {
 		// 오늘 ~ 종강일 D-day
 		// getTimeInMillis() : 날짜를 ms(밀리초) 단위까지 숫자로 반환
 		// 1970년 1월 1일 0시 0분 0초 0ms 부터 카운트한 숫자를 반환
-		// 0.001초		: 1ms
+		// 1000ms		: 1s
 		// 60초			: 1분
 		// 60분			: 1시간
 		// 24시			: 1일
