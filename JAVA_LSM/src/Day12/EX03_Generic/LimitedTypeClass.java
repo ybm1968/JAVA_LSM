@@ -1,5 +1,5 @@
 package Day12.EX03_Generic;
-// 복습
+
 class A { }
 
 class B extends A { }
