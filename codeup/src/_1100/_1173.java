@@ -3,7 +3,7 @@ package _1100;
 import java.util.Scanner;
 
 // min이 30 이상이면 min - 30
-// min이 30 이하이면 min + 30 and hour - 1
+// min이 30 미만이면 min + 30 and hour - 1
  
 public class _1173 {
 	
@@ -16,8 +16,11 @@ public class _1173 {
 			min = min - 30;
 		}
 		else {
-			
+			min = min + 30;
+			--hour;
 		}
+		
+		System.out.println(hour + " " + min);
 		
 		sc.close();
 	}
