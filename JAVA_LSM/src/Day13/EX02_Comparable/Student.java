@@ -36,8 +36,9 @@ public class Student implements Comparable<Student> {
 		// 학생을 이름순으로 정렬 (오름차순)
 		String thisName = this.getName();		// 해당객체 이름
 		String comName = o.getName();			// 비교객체 이름
-		int gap = thisName.compareTo(comName);
 		
+		int gap = thisName.compareTo(comName);	// 오름차순(가나다순)
+		int gap2 = comName.compareTo(thisName); // 내림차순(역가나다순)
 		// String 의 compareTo() 메소드로 문자열 크기 비교
 		// 해당객체명.compareTO(비교객체명)
 		// 해당객체 > 비교객체 : 양수

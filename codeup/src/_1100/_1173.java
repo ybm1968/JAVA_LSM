@@ -17,7 +17,13 @@ public class _1173 {
 		}
 		else {
 			min = min + 30;
-			--hour;
+			
+			if(hour == 0)
+				hour = 23;
+			else 
+				--hour;
+				
+			
 		}
 		
 		System.out.println(hour + " " + min);

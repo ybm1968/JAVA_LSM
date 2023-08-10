@@ -28,7 +28,7 @@ public class MapEx {
 		System.out.println("RM의 코딩성적 : " + map.get("RM"));
 		System.out.println();
 		
-		// ketSet() : 모든 키를 가져온다
+		// keySet() : 모든 키를 가져온다
 		Set<String> keySet = map.keySet();
 		
 		for (String key : keySet) {
