@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 // min이 30 이상이면 min - 30
 // min이 30 미만이면 min + 30 and hour - 1
- 
+// 30분 전 
 public class _1173 {
 	
 	public static void main(String[] args) {
