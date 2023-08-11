@@ -19,6 +19,9 @@ public class DataAccess extends JDBConnection {
 			stmt = con.createStatement();		// 쿼리 실행 객체 생성
 			rs = stmt.executeQuery(sql);		// 쿼리 실행 - 결과-->rs (ResultSet)
 			
+			// createStatement 메소드 안에 new가 어디있지
+			// con에서 객체가 생성되서 생성된 객체를 statment에서 받으려면 statement가 상위개념 클래스??
+			
 			int i = 0;
 			// 조회 결과를 배열에 추가
 			while( rs.next() ) {

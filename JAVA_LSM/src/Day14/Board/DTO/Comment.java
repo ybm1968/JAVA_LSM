@@ -1,4 +1,4 @@
-package Day07_EX05_BoardInterface2;
+package Day14.Board.DTO;
 
 public class Comment extends Text {
 
@@ -19,7 +19,6 @@ public class Comment extends Text {
 
 	public void setCommentNo(int commentNo) {
 		this.commentNo = commentNo;
-		setNo(commentNo);
 	}
 
 	public int getBoardNo() {

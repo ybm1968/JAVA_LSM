@@ -23,7 +23,7 @@ public class JDBConnection {
 			// DB에 연결
 			String url = "jdbc:mysql://localhost:3306/joeun?serverTimezone=Asia/Seoul&allowPublicKeyRetrieval=true&useSSL=false";
 			String id = "joeun";
-			String pw = "123456";
+			String pw = "12345678";
 			
 			con = DriverManager.getConnection(url, id, pw);
 			
@@ -40,3 +40,6 @@ public class JDBConnection {
 //	}
 
 }
+
+
+

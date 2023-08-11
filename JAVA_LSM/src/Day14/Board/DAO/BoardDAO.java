@@ -1,14 +1,18 @@
-package Day07_EX05_BoardInterface2;
+package Day14.Board.DAO;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
-public class BoardAccess extends JDBConnection implements DataService {
+import Day14.Board.DTO.Board;
+import Day14.Board.DTO.Text;
+
+public class BoardDAO extends JDBConnection implements DataService {
 	
 	// 데이터 목록 조회
-	public Text[] selectList() {
+	public List<? extends Text> selectList() {
 		
-		int max = Main.max;
-		Board[] boardList = new Board[max];
+		List<Board> boardList = new ArrayList<Board>();
 		
 		// SQL
 		String sql = " SELECT * "
@@ -18,13 +22,13 @@ public class BoardAccess extends JDBConnection implements DataService {
 			stmt = con.createStatement();		// 쿼리 실행 객체 생성
 			rs = stmt.executeQuery(sql);		// 쿼리 실행 - 결과-->rs (ResultSet)
 			
-			int i = 0;
-			// 조회 결과를 배열에 추가
-			while( rs.next() ) {
+			// 조회 결과를 리스트에 추가
+			while( rs.next() ) {				
 				Board board = new Board();
 				
 				// 결과 데이터 가져오기
 				// rs.getXXX("컬럼명") --> 해당 컬럼의 데이터를 가져온다
+				// - 실행 결과에서 "컬럼명"의 값을 특정 타입으로 반환한다.
 				board.setBoardNo( rs.getInt("board_no") );
 				board.setTitle( rs.getString("title") );
 				board.setWriter( rs.getString("writer") );
@@ -32,8 +36,7 @@ public class BoardAccess extends JDBConnection implements DataService {
 				board.setRegDate( rs.getTimestamp("reg_date") );
 				board.setUpdDate( rs.getTimestamp("upd_date") );
 				
-				if( i >= max ) break;
-				boardList[i++] = board;
+				boardList.add(board);
 			}
 			
 		} catch (SQLException e) {
@@ -51,11 +54,15 @@ public class BoardAccess extends JDBConnection implements DataService {
 				   + " WHERE board_no = ? ";
 		
 		try {
-			psmt = con.prepareStatement(sql);		// 쿼리 실행 객체 생성
+			psmt = con.prepareStatement(sql);		// 쿼리 실행 객체 생성 (prepareStatement)
 			// psmt.setXXX( 순서번호, 매핑할 값 );
 			psmt.setInt(1, no);				// ?(1) <-- boardNo(글번호)
+			// setXXX(순서, 값)		: SQL의 지정한 순서(?)에 있는 파라미터에 값을 매핑
+			// - 여기서는 1번 ? 에 글번호 no의 값을 매핑한다
 			rs = psmt.executeQuery();				// 쿼리 실행
-
+			// executeQuery
+			//: SQL(SELECT) 을 실행하고 결과를 ResultSet 객체로 반환
+			
 			// 조회 결과 가져오기
 			if( rs.next() ) {
 				board.setBoardNo( rs.getInt("board_no") );
@@ -89,6 +96,9 @@ public class BoardAccess extends JDBConnection implements DataService {
 			result = psmt.executeUpdate();				// SQL 실행 요청, 적용된 데이터 개수를 받아옴
 														// 게시글 1개 쓰기 성공 시, result : 1
 														// 				실패 시, result : 0
+			// executeUpdate
+			// : SQL(INSERT, UPDATE, DELETE)을 실행하고 적용된 데이터 개수를 int 타입으로 반환
+			
 		} catch (SQLException e) {
 			System.err.println("게시글 등록 시, 에러 발생");
 			e.printStackTrace();
@@ -112,10 +122,10 @@ public class BoardAccess extends JDBConnection implements DataService {
 
 		try {
 			psmt = con.prepareStatement(sql);
-			psmt.setString(1, text.getTitle());		// 1번 ? 에 제목을 매핑
+			psmt.setString(1, text.getTitle());			// 1번 ? 에 제목을 매핑
 			psmt.setString(2, text.getWriter());		// 2번 ? 에 작성자을 매핑
 			psmt.setString(3, text.getContent());		// 3번 ? 에 내용을 매핑
-			psmt.setInt(4, text.getNo());			// 4번 ? 에 게시글 번호를 매핑
+			psmt.setInt(4, text.getNo());				// 4번 ? 에 게시글 번호를 매핑
 			
 			result = psmt.executeUpdate();				// SQL 실행 요청, 적용된 데이터 개수를 받아옴
 														// 게시글 1개 수정 성공 시, result : 1
@@ -147,8 +157,11 @@ public class BoardAccess extends JDBConnection implements DataService {
 	}
 
 	@Override
-	public Text[] selectList(int boardNo) {
+	public List<? extends Text> selectList(int no) {
 		return null;
 	}
+
 	
 }
+
+

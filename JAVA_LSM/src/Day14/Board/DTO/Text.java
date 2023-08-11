@@ -1,4 +1,4 @@
-package Day07_EX05_BoardInterface2;
+package Day14.Board.DTO;
 
 import java.util.Date;
 
@@ -75,4 +75,3 @@ public class Text {
 	
 	
 }
-

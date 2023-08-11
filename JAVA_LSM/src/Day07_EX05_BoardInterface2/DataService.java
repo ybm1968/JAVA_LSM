@@ -4,6 +4,8 @@ public interface DataService {
 	
 	Text[] selectList();
 	
+	Text[] selectList(int boardNo);
+	
 	Text select(int no);
 	
 	int insert(Text text);
@@ -13,3 +15,4 @@ public interface DataService {
 	int delete(int no);
 
 }
+
