@@ -8,11 +8,11 @@ public class Walker extends DeliveryType {
 	}
 	
 	Walker(String name){
-		super("도보");
+		super(name);
 	}
 
 	@Override
-	public String work() {
-		return "도보";
+	public void work() {
+		System.out.println(name + "(으/)로 배달을 수행중입니다.");
 	}
 }

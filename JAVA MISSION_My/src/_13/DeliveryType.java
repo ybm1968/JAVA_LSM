@@ -14,8 +14,7 @@ public class DeliveryType {
 	}
 	
 	// memberMethod
-	public String work() {
-		return "기본";
+	public void work() {
 		
 	}
 

@@ -13,12 +13,20 @@ public class ModooDriver {
 		this.power = power;
 	}
 	
-	public void drive(DeliveryType name) {
-		
+	public void drive(DeliveryType deliveryName) {
+		DeliveryType dt = deliveryName;
+		dt.work();
 	}
 	
-	public void drive(DeliveryType deliName, Drink drinkName) {
-		
+	public void drive(DeliveryType deliveryName, Drink drinkName) {
+		DeliveryType dt = deliveryName;
+		Drink dk = drinkName;
+		dt.work();
+		dk.getPower();
+	}
+	
+	public void powerUP(Drink drink) {
+		power = drink.getPower();
 	}
 	
 

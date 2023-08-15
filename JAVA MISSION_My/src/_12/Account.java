@@ -1,10 +1,10 @@
 package _12;
 
 public class Account {
-	String accountNumber;		// 계좌번호
-	String accountHolder;		// 예금주
-	int balance;				// 예금잔액
-	String password;			// 비밀번호
+	private String accountNumber;		// 계좌번호
+	private String accountHolder;		// 예금주
+	private int balance;				// 예금잔액
+	private String password;			// 비밀번호
 	final int MIN_BALANCE = 0;			
 	final int MAX_BALANCE = 1000000000;
 	final int MIN_TRANSFER = 0;
@@ -21,11 +21,12 @@ public class Account {
 	}
 
 	public void deposit(int balance) {			// 입금
-		this.balance += balance;
+		this.balance += balance;			
 	}
 	
-	public int withdrawal(int money) {		// 출금
-		return this.balance -= money;
+	public void withdrawal(int money) {			// 출금
+		this.balance -= money;
+		
 	}
 	
 	// getter, setter
