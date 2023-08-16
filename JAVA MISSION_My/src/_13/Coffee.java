@@ -12,6 +12,6 @@ public class Coffee extends Drink {
 
 	@Override
 	public int getPower() {
-		return 100;
+		return 200;
 	}
 }

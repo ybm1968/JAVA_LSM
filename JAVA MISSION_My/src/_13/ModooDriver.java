@@ -21,19 +21,13 @@ public class ModooDriver {
 	public void drive(DeliveryType deliveryName, Drink drinkName) {
 		DeliveryType dt = deliveryName;
 		Drink dk = drinkName;
+		System.out.println(dk.name + "(을/)를 마셨습니다.");
 		dt.work();
-		dk.getPower();
 	}
 	
 	public void powerUP(Drink drink) {
 		power = drink.getPower();
+		System.out.println("활력 : " + power);
 	}
 	
-
-	// 이 조건을 사용하지 않았어...
-//	final public void template() {
-//		drive(DeliveryType name)
-//		drive(DeliveryType, Drink); 
-//		powerUp(Drink);
-//	}	
 }

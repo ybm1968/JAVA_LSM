@@ -13,7 +13,8 @@ public class Main {
 		System.out.println("========================================");
 		System.out.print("입력>> ");
 		int deliveryChoice = sc.nextInt();
-		DeliveryType dt;
+		DeliveryType dt = null;
+		
 		switch (deliveryChoice) {
 		case 1:
 			dt = new Walker("도보");
@@ -38,37 +39,33 @@ public class Main {
 		System.out.println("========================================");
 		System.out.print("입력>> ");
 		int drinkChoice = sc.nextInt();
-		Drink dk;
+		Drink dk = null;
 
 		switch (drinkChoice) {
 		case 1:
-			dk = new Drink("비타민음료");
+			dk = new VitaminDrink("비타민음료");
 			break;
 		case 2:
-			dk = new Drink("커피");;
+			dk = new Coffee("커피");
 			break;
 		case 3:
-			dk = new Drink("에너지드링크");
+			dk = new EnergyDrink("에너지드링크");
 			break;
 		case 0:
 			dk = new Drink();
+			md.drive(dt);
+			md.powerUP(dk);
 			break;
 		default:
 			System.out.println("잘못된 선택입니다.");
 		}
+		if( drinkChoice != 0 ) {
+			md.drive(dt, dk);
+			md.powerUP(dk);
+			
+		}
 		
-		
-		
-		
-//		System.out.println(drink.name + "을(를) 마셨습니다.");
-//		System.out.println(delivery.work() + "(으)로 배달을 수행중입니다.");
-//		System.out.println("활력 : " + drink.getPower());
-//		System.out.println("\n");
-
 		sc.close();
 	}
 }
 
-/*
- * 문제점 1. ModooDriver을 사용하지 않았다. 사실 어떤 용도로 사용되는건지 잘 모르겠다. 2.
- */

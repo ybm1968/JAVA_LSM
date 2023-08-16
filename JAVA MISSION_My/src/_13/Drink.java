@@ -22,6 +22,6 @@ public class Drink {
 	
 	// method
 	public int getPower() {
-		return 0;
+		return 100;
 	}	
 }
