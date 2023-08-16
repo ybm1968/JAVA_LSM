@@ -79,7 +79,7 @@ public class StreamArrayList {
 		System.out.println();
 
 		
-		// reverse 와 reverseOrder 유튜브 설명듣기
+		
 		// 이름 순으로 정렬 - 내림차순
 		list.stream().sorted(Comparator.comparing(Person::getName).reversed() ) 				
 					 .forEach(p -> System.out.println(p));
