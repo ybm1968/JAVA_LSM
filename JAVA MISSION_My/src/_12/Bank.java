@@ -62,7 +62,7 @@ public class Bank {
 
 			Account account = accountList[i];
 
-			while ((account.MAX_BALANCE < balance) || (account.MIN_BALANCE > balance)) {
+			while ((account.MAX_BALANCE < (balance + account.getBalance()) ) || (account.MIN_BALANCE > balance)) {
 				System.out.println("예금금액이 올바르지 않습니다. 다시 입력하세요.");
 				System.out.print("입금액>> ");
 				balance = sc.nextInt();
@@ -159,26 +159,6 @@ public class Bank {
 			}
 		}
 	}
-
-//	public static Account input() {
-//		System.out.print("계좌번호>> ");
-//		String accountNumber = sc.nextLine();
-//
-//		System.out.print("비밀번호>> ");
-//		String password = sc.nextLine();
-//		
-//		for (int i = 0; i < accountList.length; i++) {
-//			if ( accountList[0] == null ) {
-//				System.out.println("등록된 계좌가 없습니다.");
-//				break;
-//			}
-//			else if (accountList[i] == null) break;
-//			
-//			Account account = accountList[i];
-//		}
-//		
-//		return account;
-//	}
 
 	public static void accountList() {
 		System.out.print("관리자 비밀번호>> ");
