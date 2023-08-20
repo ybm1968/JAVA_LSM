@@ -11,7 +11,7 @@ import java.util.Queue;
  *  데이터 삭제 - Dequeue : 가장 먼저 추가한 데이터를 삭제하는 연산
  *  
  *  앞쪽 		: front, head
- *  뒤쪽		: rear, tail
+ *  뒤쪽			: rear, tail
  *  
  *  요소 추가
  *  - add()			: 데이터를 추가하여 성공하면 true 반환
