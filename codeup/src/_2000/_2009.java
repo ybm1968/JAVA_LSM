@@ -10,15 +10,13 @@ public class _2009 {
 		int k = sc.nextInt();
 		int n = sc.nextInt();
 		int count = 0;
-		// k =  k - n + 1
-		// 
-		// count++
-		// k < 0 --> false
 		
-		while ( k > 0 ) {
+		while ( k >= n ) {
 			k = k - n + 1;
 			count++;
 		}
 		System.out.println(count);
+		
+		sc.close();
 	}
 }

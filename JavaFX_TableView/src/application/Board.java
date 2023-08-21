@@ -1,6 +1,5 @@
 package application;
 
-import java.util.Date;
 
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
