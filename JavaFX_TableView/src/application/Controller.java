@@ -14,7 +14,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 public class Controller implements Initializable{
 
-	@FXML
+	@FXML    
 	private TableColumn<Board, Integer> colBoardNo;
 
 	@FXML
