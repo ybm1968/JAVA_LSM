@@ -43,6 +43,17 @@ public class MainController implements Initializable{
 	private Stage stage;
 	private Scene scene;
 	ObservableList<Board> observableList;
+	ArrayList<Board> boardList = new ArrayList<>();
+	
+	public void boardWrite(int boardNo, String title, String writer,
+			String content, String regDate, String updDate) {
+		Board board = new Board(boardNo, title, writer, content, regDate, updDate);
+		boardList.add(board);
+		observableList.add(board);
+		
+	}
+	
+	
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -50,18 +61,24 @@ public class MainController implements Initializable{
 //		Board board1 = new Board(1, "제목1", "작성자1", "내용1", "2023-08-18", "2023-08-18");
 //		Board board2 = new Board(2, "제목2", "작성자2", "내용2", "2023-08-18", "2023-08-18");
 //		Board board3 = new Board(3, "제목3", "작성자3", "내용3", "2023-08-18", "2023-08-18");
-//		Board board4 = boardWrite(null, null, null)
+//		
 //		ArrayList<Board> boardList = new ArrayList<Board>();
 //		boardList.add(board1);
 //		boardList.add(board2);
 //		boardList.add(board3);
-//		
+//	
+//
 //		ObservableList<Board> list = FXCollections.observableArrayList(
 //				boardList
 //		);
+	
+		
+		
 		
 		observableList = FXCollections.observableArrayList();
-				
+		
+
+		
 		
 		
 		// TableColum 에 열과 추가할 아이템 객체의 게터(getXXX) 이름 지정하기 
@@ -79,14 +96,8 @@ public class MainController implements Initializable{
 		// TableView에 데이터 리스트를 지정
 		// - 미리 매핑된 TableColum 에 리스트의 요소 객체의 변수값이 지정됨
 		boardTableView.setItems(observableList);
-				
 	}
 	
-	public void boardWrite(int boardNo, String title, String writer,
-			String content, String regDate, String updDate) {
-		observableList.add(new Board(boardNo, title, writer, content, regDate, updDate));
-	}
-
 	public void switcTohWrite(ActionEvent event) throws IOException {
 		switchScnene(event, "Write.fxml");
 	}

@@ -12,8 +12,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 public class WriteController {
@@ -26,13 +28,16 @@ public class WriteController {
 
 	@FXML
 	private TextField writeWriter;
+	
+	@FXML
+	private Button completeButton;
 
 	private Stage stage;
 	private Scene scene;
 	private Parent root;
 
-	List<Board> boardList = new ArrayList<>();
-	Board board;
+//	ArrayList<Board> boardList = new ArrayList<>();
+//	Board board;
 	
 	Date now = new Date();
 	// 날짜/시간 문자
@@ -41,38 +46,17 @@ public class WriteController {
 	String dateFormat = "yyyy-MM-dd";
 	SimpleDateFormat sdf = new SimpleDateFormat(dateFormat);
 	String nowStr = sdf.format(now);
-	
-	
-//	// 데이터 등록
-//	public int insert(Board board) {
-//		int result = 0;
-//
-//		String sql = " INSERT INTO board( title, writer, content ) " + " VALUES( ?, ?, ? ) ";
-//
-//		try {
-//			psmt = con.prepareStatement(sql);
-//			psmt.setString(1, board.getTitle());
-//			psmt.setString(2, board.getWriter());
-//			psmt.setString(3, board.getContent());
-//
-//			result = psmt.executeUpdate();
-//
-//		} catch (SQLException e) {
-//			System.err.println("게시글 등록 시, 에러 발생");
-//			e.printStackTrace();
-//		}
-//		return result;
-//	}
 
 	
-	
+	@FXML
 	public void inputDate(ActionEvent event) throws Exception {
 		
 		String title = writeTitle.getText();
 		String writer = writeWriter.getText();
 		String content = writeContent.getText();
 		
-//		Board board = new Board(title, writer, content);
+//		Board board = new Board(MainController.no, title, writer, content, nowStr, nowStr);
+//		boardList.add(board);
 //		insert(board);
 		
 		// Main.fxml 읽어오기
@@ -81,7 +65,9 @@ public class WriteController {
 		
 		// Main.fxml 에 연결된 MainController 가져오기
 		MainController mainController =  loader.getController();
-		mainController.boardWrite(MainController.no, title, writer, content, nowStr, nowStr);		// SubController 를 통해서 Main 씬에서 입력한 name(이름)을 Sub 씬에 넘김
+//		mainController.boardList.add(board);
+		mainController.boardWrite(MainController.no, title, writer, content, nowStr, nowStr);
+		MainController.no++;
 		
 		// Main -> Sub  화면 전환
 		stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
