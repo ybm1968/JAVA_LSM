@@ -24,7 +24,7 @@
         </columns>
       </TableView>
       <Button fx:id="updateButton" layoutX="585.0" layoutY="544.0" mnemonicParsing="false" onAction="#switcTohUpDate" prefHeight="31.0" prefWidth="78.0" text="글수정" />
-      <Button fx:id="deleteButton" layoutX="692.0" layoutY="544.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="78.0" text="글삭제" />
+      <Button fx:id="deleteButton" layoutX="692.0" layoutY="544.0" mnemonicParsing="false" onAction="#boardDelete" prefHeight="31.0" prefWidth="78.0" text="글삭제" />
       <Button fx:id="writeButton" layoutX="480.0" layoutY="544.0" mnemonicParsing="false" onAction="#switcTohWrite" prefHeight="31.0" prefWidth="78.0" text="글쓰기" />
    </children>
 </AnchorPane>

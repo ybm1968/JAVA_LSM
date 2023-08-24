@@ -32,17 +32,11 @@ public class WriteController {
 	@FXML
 	private Button completeButton;
 
-	private Stage stage;
-	private Scene scene;
-	private Parent root;
+	Stage stage;
+	Scene scene;
+	Parent root;
 
-//	ArrayList<Board> boardList = new ArrayList<>();
-//	Board board;
-	
-	Date now = new Date();
-	// 날짜/시간 문자
-	// yyyy : 년도,	MM : 월, 	dd : 일
-	// hh 	: 시,	mm : 분,		ss : 초
+	Date now = new Date();	
 	String dateFormat = "yyyy-MM-dd";
 	SimpleDateFormat sdf = new SimpleDateFormat(dateFormat);
 	String nowStr = sdf.format(now);
@@ -55,17 +49,13 @@ public class WriteController {
 		String writer = writeWriter.getText();
 		String content = writeContent.getText();
 		
-//		Board board = new Board(MainController.no, title, writer, content, nowStr, nowStr);
-//		boardList.add(board);
-//		insert(board);
-		
 		// Main.fxml 읽어오기
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("Main.fxml"));
 		root = loader.load();  // Main 씬 가져옴
 		
+
 		// Main.fxml 에 연결된 MainController 가져오기
 		MainController mainController =  loader.getController();
-//		mainController.boardList.add(board);
 		mainController.boardWrite(MainController.no, title, writer, content, nowStr, nowStr);
 		MainController.no++;
 		
