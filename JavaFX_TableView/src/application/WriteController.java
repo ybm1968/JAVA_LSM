@@ -31,8 +31,6 @@ public class WriteController {
 	private Scene scene;
 	private Parent root;
 
-	List<Board> boardList = new ArrayList<>();
-	Board board;
 	
 	Date now = new Date();
 	// 날짜/시간 문자
@@ -82,6 +80,7 @@ public class WriteController {
 		// Main.fxml 에 연결된 MainController 가져오기
 		MainController mainController =  loader.getController();
 		mainController.boardWrite(MainController.no, title, writer, content, nowStr, nowStr);		// SubController 를 통해서 Main 씬에서 입력한 name(이름)을 Sub 씬에 넘김
+		mainController.no++;
 		
 		// Main -> Sub  화면 전환
 		stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

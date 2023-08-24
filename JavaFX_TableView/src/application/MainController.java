@@ -8,6 +8,7 @@ import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -17,6 +18,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 public class MainController implements Initializable{
@@ -43,6 +45,14 @@ public class MainController implements Initializable{
 	private Stage stage;
 	private Scene scene;
 	ObservableList<Board> observableList;
+	static ArrayList<Board> boardList = new ArrayList<>();
+	
+	public void boardWrite(int boardNo, String title, String writer,
+			String content, String regDate, String updDate) {
+		Board board = new Board(boardNo, title, writer, content, regDate, updDate);
+		boardList.add(board);
+		observableList.addAll(boardList);
+	}
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -82,10 +92,54 @@ public class MainController implements Initializable{
 				
 	}
 	
-	public void boardWrite(int boardNo, String title, String writer,
-			String content, String regDate, String updDate) {
-		observableList.add(new Board(boardNo, title, writer, content, regDate, updDate));
-	}
+//	boardTableView.setOnMouseClicked(new EventHandler<MouseEvent>() {
+//
+//		@Override
+//		public void handle(MouseEvent event) {
+//			// 더블 클릭 이벤트
+//			if(event.getClickCount() == 2) {
+//				System.out.println("더블 클릭");
+//				selectedItem = boardTableView.getSelectionModel().getSelectedItem();
+//				
+//				System.out.println("선택한 아이템 : " + selectedItem);
+//				
+//				
+//				stage = (Stage) ( (Node) event.getSource() ).getScene().getWindow();
+//				
+//				// 메뉴 아이템의 번호를 넘기기
+//				// 아메리카노(0)
+//				// 카페라뗴(1)
+//				// 헤이즐넛(2)
+//				int index = listView.getSelectionModel().getSelectedIndex();
+//				System.out.println(index);
+//				// Sub씬 을 가져오기
+//				FXMLLoader loader = new FXMLLoader(getClass().getResource("Sub.fxml"));
+//				
+//				
+//				try {
+//					
+//					root = loader.load();		// load() 메소드를 호출해야 loader에 Sub 씬 인스턴스를 가져온다.
+//												// 호출해야 Controller 도 null이 되지 않는다.
+//				} catch (IOException e) {
+//					e.printStackTrace();
+//				}
+//				
+//				// Sub.fxml 에 연결된 SubController 가져오기
+//				SubController subController = loader.getController();
+//				
+//				if( subController != null ) {
+//					// inputItemIndex 메소드 정의
+//					subController.inputItemIndex(index);
+//				}
+//				// 화면 이동
+//				switchScene(stage, root, "Sub.fxml");
+//	
+//			}
+//		}
+//			
+//	});
+	
+	
 
 	public void switcTohWrite(ActionEvent event) throws IOException {
 		switchScnene(event, "Write.fxml");
