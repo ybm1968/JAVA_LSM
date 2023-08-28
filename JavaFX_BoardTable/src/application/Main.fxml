@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
+   <children>
+      <Label layoutX="355.0" layoutY="49.0" text="게시판">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <TableView fx:id="boardTableView" layoutX="30.0" layoutY="120.0" prefHeight="400.0" prefWidth="740.0">
+        <columns>
+          <TableColumn fx:id="colBoardNo" prefWidth="60.0" styleClass="tableCol" text="글번호" />
+          <TableColumn id="tableColTitle" fx:id="colTitle" prefWidth="320.0" styleClass="tableCol" text="제목" />
+            <TableColumn fx:id="colWriter" prefWidth="120.0" styleClass="tableCol" text="작성자" />
+            <TableColumn fx:id="colRegDate" prefWidth="120.0" styleClass="tableCol" text="등록일자" />
+            <TableColumn fx:id="colUpdDate" prefWidth="120.0" styleClass="tableCol" text="수정일자" />
+        </columns>
+      </TableView>
+      <Button fx:id="updateButton" layoutX="585.0" layoutY="544.0" mnemonicParsing="false" onAction="#switcTohUpDate" prefHeight="31.0" prefWidth="78.0" text="글수정" />
+      <Button fx:id="deleteButton" layoutX="692.0" layoutY="544.0" mnemonicParsing="false" onAction="#boardDelete" prefHeight="31.0" prefWidth="78.0" text="글삭제" />
+      <Button fx:id="writeButton" layoutX="480.0" layoutY="544.0" mnemonicParsing="false" onAction="#switcTohWrite" prefHeight="31.0" prefWidth="78.0" text="글쓰기" />
+   </children>
+</AnchorPane>

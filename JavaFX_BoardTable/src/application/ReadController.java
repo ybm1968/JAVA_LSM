@@ -8,8 +8,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-
-import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -34,31 +32,29 @@ public class ReadController {
 	@FXML
 	private TextField textWriter;
 
-	@FXML
-	private Button toMainButton;
-
-	private Stage stage;
-	private Scene scene;
+	Stage stage;
+	Scene scene;
 
 	Board board;
 
 	public void readBoard(int index) {
 		board = MainController.boardList.get(index);
-		
+
 		textNo.setText(board.getBoardNo() + "");
 		textTiltle.setText(board.getTitle());
 		textWriter.setText(board.getWriter());
 		textContent.setText(board.getContent());
 		textRegDate.setText(board.getRegDate());
-		textRegDate.setText(board.getUpdDate());
+		textUpdDate.setText(board.getUpdDate());
 	}
 
-	public void switchScnene(ActionEvent event, String fxml) throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource(fxml));
+	public void switchScnene(ActionEvent event) throws IOException {
+		Parent root = FXMLLoader.load(getClass().getResource("Main.fxml"));
 		scene = new Scene(root);
 		stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		stage.setScene(scene);
 		stage.show();
 	}
+	
 
 }

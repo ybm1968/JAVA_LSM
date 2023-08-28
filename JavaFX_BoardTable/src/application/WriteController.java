@@ -2,7 +2,6 @@ package application;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -15,7 +14,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 public class WriteController {
@@ -28,7 +26,7 @@ public class WriteController {
 
 	@FXML
 	private TextField writeWriter;
-
+	
 	@FXML
 	private Button completeButton;
 
@@ -56,12 +54,11 @@ public class WriteController {
 
 		// Main.fxml 에 연결된 MainController 가져오기
 		MainController mainController =  loader.getController();
-
-		mainController.boardWrite(MainController.no, title, writer, content, nowStr, nowStr);		// SubController 를 통해서 Main 씬에서 입력한 name(이름)을 Sub 씬에 넘김
-		mainController.no++;
-
+		mainController.boardWrite(MainController.no, title, writer, content, nowStr, nowStr);
+		MainController.no++;
 		
 		// Main -> Sub  화면 전환
+		Parent root = FXMLLoader.load(getClass().getResource("Main.fxml"));
 		stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		scene = new Scene(root);
 		stage.setScene(scene);
@@ -70,6 +67,14 @@ public class WriteController {
 	
 	public void switchScnene(ActionEvent event) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("Main.fxml"));
+//		FXMLLoader loader = new FXMLLoader(getClass().getResource("Main.fxml"));
+//		root = loader.load();  // Main 씬 가져옴
+		
+//		List<Board> boardList = MainController.boardList;
+//		for (Board board : boardList) {
+//			System.out.println(board);
+//		}
+		
 		scene = new Scene(root);
 		stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		stage.setScene(scene); 				

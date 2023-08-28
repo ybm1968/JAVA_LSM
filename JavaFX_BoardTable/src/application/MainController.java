@@ -50,15 +50,27 @@ public class MainController implements Initializable{
 	static ArrayList<Board> boardList = new ArrayList<>();
 	
 	public void boardWrite(int boardNo, String title, String writer,
-			String content, String regDate, String updDate) {
+		String content, String regDate, String updDate) throws IOException {
 		Board board = new Board(boardNo, title, writer, content, regDate, updDate);
 		boardList.add(board);
-		observableList.addAll(boardList);
+//		observableList.addAll(boardList);
 	}
+	
+	public void boardUpDate(Board board, int index) {
+		boardList.set(index, board);
+//		observableList.addAll(boardList);
+	}
+	
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		
+//		List<Board> boadList = boardDAO.list();
+//		observableList.addAll(boardList);
+		
 		observableList = FXCollections.observableArrayList();
+		
+		observableList.addAll(boardList);
 		
 		colBoardNo.setCellValueFactory(new PropertyValueFactory<>("BoardNo"));
 		colTitle.setCellValueFactory(new PropertyValueFactory<>("Title"));
@@ -97,6 +109,7 @@ public class MainController implements Initializable{
 					
 				}
 				if(event.getClickCount() == 1 ) {
+//					index2 = boardTableView.getSelectionModel().getSelectedItem().getBoardNo();
 					index2 = boardTableView.getSelectionModel().getSelectedIndex();
 				}
 				}
@@ -107,11 +120,15 @@ public class MainController implements Initializable{
 	}
 	@FXML
 	public void boardDelete() {
+		System.out.println(index2);
 		boardList.remove(index2);
+		
+		observableList = FXCollections.observableArrayList();
 		observableList.addAll(boardList);
+		
+		boardTableView.setItems(observableList);
 	}
 	
-
 	public void switcTohWrite(ActionEvent event) throws IOException {
 		switchScnene(event, "Write.fxml");
 	}
